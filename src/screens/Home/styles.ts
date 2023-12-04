@@ -75,6 +75,7 @@ export const styles = StyleSheet.create({
     taskList: {
         marginTop: 20,
         marginHorizontal: 24,
+        
     }
 
 

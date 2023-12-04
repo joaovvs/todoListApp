@@ -30,7 +30,8 @@ export function TaskCard({ task,  onRemove, onTaskCheck } : Props) {
             >
                 {task.taskName}
             </Text>
-            <TouchableOpacity
+            <TouchableOpacity style={styles.removeButton}
+
                 onPress={onRemove}
             >
                 <Icon name='trash' size={14} color={"#808080"}/>

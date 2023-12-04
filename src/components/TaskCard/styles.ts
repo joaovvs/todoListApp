@@ -38,11 +38,18 @@ export const styles = StyleSheet.create({
         top: 15
     },
 
+    removeButton:{
+        paddingHorizontal: 10,
+        paddingVertical: 9
+
+    },
+
     button: {
         color: '#808080',
         alignSelf: "flex-end"
     },
 
+    
 
 
 });

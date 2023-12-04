@@ -29,27 +29,13 @@ export function Home(){
         
     }
 
-    //order list os task by creation date desc if not not done
-    function orderByCreateDate(a: Task, b: Task) {
-
-        
-        if (a.created_at < b.created_at && !a.done_at) {
-          return 1;
-        }
-        if (a.created_at > b.created_at && !a.done_at) {
-          return -1;
-        }
-        // a must be equal to b
-        return 0;
-      };
 
     function handleAddTask(){
         if(newTask){
-            setTaskList(prevState => [newTask,...prevState].sort(orderByCreateDate));
+            setTaskList(prevState => [newTask,...prevState]);
         }
         console.log(taskList);
         setNewTask(undefined);
-
     }
     function handleCheckBoxClick(task: Task){
         task.done= !task.done;
@@ -58,9 +44,11 @@ export function Home(){
         } else {
             task.done_at= null;
         }
+
         setTaskList(prevState => [...prevState.
-            filter(item => item.taskName !==task.taskName), task].sort(orderByCreateDate));
-        return task.done;
+            filter(item => item.taskName !==task.taskName), task]);
+
+            return task.done;
     }
 
     function handleTaskRemove(task: Task){
@@ -129,6 +117,7 @@ export function Home(){
                 data={taskList}
                 renderItem={({item, index}) => (
                     <TaskCard 
+                        key={index}
                         task={item}
                         onTaskCheck={() => handleCheckBoxClick(item)}
                         onRemove={() => handleTaskRemove(item)}
