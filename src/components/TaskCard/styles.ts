@@ -8,8 +8,8 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 8,
         gap: 8,
         justifyContent: "flex-start",
-
         alignItems: "center",
+        marginBottom: 8,
 
         borderColor: '#333',
         borderWidth: 1,

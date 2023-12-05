@@ -29,10 +29,20 @@ export function Home(){
         
     }
 
+    function sortByCreatedDate( a: Task, b: Task){
+        if( a.created_at > b.created_at){
+            return -1
+        }
+        if(a.created_at < b.created_at){
+            1
+        }
+        return 0
+    }
+
 
     function handleAddTask(){
         if(newTask){
-            setTaskList(prevState => [newTask,...prevState]);
+            setTaskList(prevState => [newTask,...prevState].sort(sortByCreatedDate));
         }
         console.log(taskList);
         setNewTask(undefined);
@@ -46,7 +56,7 @@ export function Home(){
         }
 
         setTaskList(prevState => [...prevState.
-            filter(item => item.taskName !==task.taskName), task]);
+            filter(item => item.taskName !==task.taskName), task].sort(sortByCreatedDate));
 
             return task.done;
     }
