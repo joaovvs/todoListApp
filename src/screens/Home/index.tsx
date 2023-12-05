@@ -44,7 +44,6 @@ export function Home(){
         if(newTask){
             setTaskList(prevState => [newTask,...prevState].sort(sortByCreatedDate));
         }
-        console.log(taskList);
         setNewTask(undefined);
     }
     function handleCheckBoxClick(task: Task){
